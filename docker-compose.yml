@@ -25,16 +25,19 @@ services:
       - ./docker/php/php.ini:/usr/local/etc/php/php.ini
 
   l11dev-mysql:
-    image: mysql:8.0.37
-    command: --max_allowed_packet=32505856
+    image: mysql:8.3
+    # command: --max_allowed_packet=32505856
+    command: --bind-address=0.0.0.0
     container_name: "l11dev-mysql"
     volumes:
       - ./docker/mysql:/var/lib/mysql
     environment:
       - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=password
+      - MYSQL_DATABASE=app_db
+      - MYSQL_USER=devuser
+      - MYSQL_PASSWORD=password
     ports:
-      - 3307:3306
+      - 3308:3306
 
   l11dev-redis:
     image: redis:alpine
