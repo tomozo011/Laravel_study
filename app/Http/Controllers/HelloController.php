@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Person;
 
 class HelloController extends Controller
 {
@@ -19,6 +20,15 @@ class HelloController extends Controller
     {
         $data = [
             'msg' => $request->bye
+        ];
+
+        return view('chpter1.other', $data);
+    }
+
+    public function person(Person $person)
+    {
+        $data = [
+            'msg' => $person,
         ];
 
         return view('chpter1.other', $data);

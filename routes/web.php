@@ -26,3 +26,6 @@ Route::namespace('Sample')->group(function() {
     Route::get('/sample', [SampleController::class, 'index']);
     Route::get('/sample/other', [SampleController::class, 'other']);
 });
+
+// ルートとモデルの結合
+Route::get('/hello/{person}', [HelloController::class, 'person']);
