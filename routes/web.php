@@ -29,3 +29,6 @@ Route::namespace('Sample')->group(function() {
 
 // ルートとモデルの結合
 Route::get('/hello/{person}', [HelloController::class, 'person']);
+
+// configクラス
+Route::get('/hello', [HelloController::class, 'sampleConfig']);

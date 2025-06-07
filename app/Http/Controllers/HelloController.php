@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Person;
+use config\sample;
 
 class HelloController extends Controller
 {
@@ -32,5 +33,17 @@ class HelloController extends Controller
         ];
 
         return view('chpter1.other', $data);
+    }
+
+    public function sampleConfig()
+    {
+        $sample_msg = config('sample.message');
+        $sample_data = config('sample.data');
+        $datas = [
+            'msg' => $sample_msg,
+            'numbers' => $sample_data,
+        ];
+
+        return view('chpter1.config', $datas);
     }
 }
