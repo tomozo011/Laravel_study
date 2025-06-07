@@ -29,8 +29,11 @@ RUN node --version
 RUN npm --version
 
 WORKDIR /src
+COPY . .
 ADD . /src/storage
 RUN chown -R www-data:www-data /src/storage
+RUN chmod -R 777 /src
+# composer install
 
 # Xdebugのインストールと設定
 RUN pecl install xdebug \
